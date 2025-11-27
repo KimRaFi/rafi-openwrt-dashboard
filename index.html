@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>RaFi Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 style="margin:20px;">RaFi • OpenWrt Dashboard</h1>
+  <div id="status" style="margin:20px;">Waiting for router data…</div>
+
+  <div class="cards">
+    <div class="card"><h3>Uptime</h3><p id="uptime">—</p></div>
+    <div class="card"><h3>CPU</h3><p id="cpu">—</p></div>
+    <div class="card"><h3>Memory</h3><p id="mem">—</p></div>
+    <div class="card"><h3>WAN Speed</h3><p id="speed">—</p></div>
+  </div>
+
+  <h2 style="margin:20px;">Clients</h2>
+  <table id="clients">
+    <thead><tr><th>IP</th><th>MAC</th><th>Host</th></tr></thead>
+    <tbody></tbody>
+  </table>
+
+<script src="app.js"></script>
+</body>
+</html>
