@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RaFi • OpenWRT Dashboard</title>
+
+  <!-- Fonts + icons + Chart.js -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">⚡</div>
+      <div>
+        <div class="brand-title">RaFi • OpenWRT</div>
+        <div class="brand-sub">Live router dashboard</div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="toggleTheme" class="btn ghost">🌗</button>
+      <a class="btn" id="refreshBtn">Refresh</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="summary">
+      <div class="floating">
+        <div class="float-item">
+          <div class="fi-title">Live Status</div>
+          <div id="status" class="fi-value">Waiting for data…</div>
+        </div>
+
+        <div class="float-item">
+          <div class="fi-title">Last</div>
+          <div id="last" class="fi-value">never</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <div class="card-head"><span>Uptime</span><i class="badge">system</i></div>
+        <div id="uptime" class="card-value">—</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><span>CPU load</span><i class="badge">proc</i></div>
+        <div id="cpu" class="card-value">—</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><span>Memory</span><i class="badge">ram</i></div>
+        <div id="mem" class="card-value">—</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><span>WAN (kb/s)</span><i class="badge">net</i></div>
+        <div id="wan" class="card-value">—</div>
+      </div>
+    </section>
+
+    <section class="charts">
+      <div class="chart-card">
+        <div class="chart-head">WAN Speed (last values)</div>
+        <canvas id="wanChart" height="120"></canvas>
+      </div>
+
+      <div class="chart-card">
+        <div class="chart-head">CPU Load (last values)</div>
+        <canvas id="cpuChart" height="120"></canvas>
+      </div>
+    </section>
+
+    <section class="clients-sec">
+      <div class="clients-head">
+        <h3>Connected Clients</h3>
+        <div class="clients-sub">click to copy MAC</div>
+      </div>
+
+      <div id="clients" class="clients-grid">
+        <!-- cards injected here -->
+      </div>
+    </section>
+
+    <footer class="foot">
+      <div>Hosted: <a id="frontendUrl" href="https://kimrafi.github.io/rafi-openwrt-dashboard/" target="_blank">kimrafi.github.io/rafi-openwrt-dashboard</a></div>
+      <div class="muted">Tip: set API_BASE in app.js to your backend API (e.g. Render URL).</div>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
